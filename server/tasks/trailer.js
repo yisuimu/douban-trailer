@@ -20,6 +20,7 @@ const { resolve } = require('path')
     })
     child.on('message', data => {
         // let result = data.result
+        //https://img1.doubanio.com/view/photo/l_ratio_poster/public/p2524955059.jpg
         console.log(data)
     })
 })()

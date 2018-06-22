@@ -1,5 +1,10 @@
 const Koa = require('koa')
+const { connect } = require('./database/init')
 const app = new Koa()
+
+;(async () => {
+    await connect()
+})()
 // const { htmlTpl, ejsTpl, pugTpl }  = require('./tpl')
 // const ejs = require('ejs')
 // const pug = require('pug')
