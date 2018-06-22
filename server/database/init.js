@@ -2,6 +2,12 @@ const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 // const db = 'mongodb://localhost/douban-trailer'
 const db = 'mongodb://localhost/douban-test'
+const glob = require('glob')
+const { resolve } = require('path')
+
+exports.initSchemas = () => {
+    glob.sync(resolve(__dirname, './schema/', '**/*.js')).forEach(require)
+}
 
 exports.connect = () => {
     let maxConnectTimes = 0

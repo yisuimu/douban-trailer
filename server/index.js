@@ -1,9 +1,15 @@
 const Koa = require('koa')
-const { connect } = require('./database/init')
+const mongoose = require('mongoose')
+const { connect, initSchemas } = require('./database/init')
 const app = new Koa()
 
 ;(async () => {
     await connect()
+
+    initSchemas()
+    const Movie = mongoose.model('Movie')
+    const movies = await Movie.find({})
+    console.log(movies)
 })()
 // const { htmlTpl, ejsTpl, pugTpl }  = require('./tpl')
 // const ejs = require('ejs')
